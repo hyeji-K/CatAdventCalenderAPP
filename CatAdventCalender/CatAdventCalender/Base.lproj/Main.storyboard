@@ -131,6 +131,37 @@
             </objects>
             <point key="canvasLocation" x="582.60869565217399" y="93.75"/>
         </scene>
+        <!--Image View Controller-->
+        <scene sceneID="uPX-0b-4uF">
+            <objects>
+                <viewController storyboardIdentifier="ImageViewController" id="ZMo-wK-ShI" customClass="ImageViewController" customModule="CatAdventCalender" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="sy6-Cb-WbW">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xyq-xQ-JEZ">
+                                <rect key="frame" x="87" y="389" width="240" height="128"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="xyq-xQ-JEZ" secondAttribute="height" multiplier="15:8" id="mYp-d5-YAP"/>
+                                </constraints>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="6DP-LO-A5j"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xyq-xQ-JEZ" firstAttribute="centerY" secondItem="6DP-LO-A5j" secondAttribute="centerY" id="JXT-Yp-rmb"/>
+                            <constraint firstItem="xyq-xQ-JEZ" firstAttribute="centerX" secondItem="6DP-LO-A5j" secondAttribute="centerX" id="acw-Zs-HoR"/>
+                            <constraint firstItem="xyq-xQ-JEZ" firstAttribute="width" secondItem="sy6-Cb-WbW" secondAttribute="width" multiplier="0.57971" id="iXs-Yb-pqv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="xyq-xQ-JEZ" id="yn8-jF-GKp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="cZ2-Tj-FIW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1493" y="94"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="LZk-5P-jjj">
             <objects>

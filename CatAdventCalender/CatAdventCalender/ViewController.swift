@@ -110,23 +110,35 @@ class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 24
+        if let gifts = gifts {
+            return gifts.count
+        } else {
+            return 0
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CalenderCell", for: indexPath) as! CalenderCell
-        let number = indexPath.item + 1
-        if indexPath.item % 2 == 0 {
-            cell.hiddenView.backgroundColor = .systemGreen
+        
+        guard let gifts = self.gifts,
+              let gift = gifts[indexPath.item] as? [String: Any]
+        else { return cell }
+        if gift["shown"] as! Int == 0 {
+            cell.hiddenView.isHidden = false
+            if indexPath.item % 2 == 0 {
+                cell.hiddenView.backgroundColor = .systemGreen
+            } else {
+                cell.hiddenView.backgroundColor = .systemRed
+            }
         } else {
-            cell.hiddenView.backgroundColor = .systemRed
+            cell.hiddenView.isHidden = true
         }
-        // TODO: PList
-        // Card.shown 이 false 면 cell.hiddenView.isHidden = false
-        // true 면 cell.hiddenView.isHidden = true
-//        cell.imageView.image = UIImage(named: "\(number)")
+        let imageName = gift["image"] as! String
+        cell.imageView.image = UIImage(named: imageName)
         cell.imageView.backgroundColor = .systemYellow
-        cell.numberLabel.text = "\(number)"
+        cell.imageView.contentMode = .scaleAspectFill
+        cell.numberLabel.text = gift["number"] as? String
+        
         return cell
     }
     
@@ -138,6 +150,24 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             if "\(indexPath.item + 1)" <= currentDay[1] {
                 print("고양이 사진을 보여줍니다.")
                 cell.showCard(false, animted: true)
+                
+                guard let gifts = self.gifts,
+                      var gift = gifts[indexPath.item] as? [String: Any]
+                else { return }
+                gift["shown"] = 1
+                gifts[indexPath.item] = gift
+                gifts.write(toFile: getFileName("ChristmasGift.plist"), atomically: true)
+                
+                self.collectionView.reloadData()
+                
+                if gift["shown"] as! Int == 1 {
+                    // 스토리보드 화면전환
+                    let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
+                    let viewController = storyboard.instantiateViewController(withIdentifier: "ImageViewController")
+                    viewController.modalTransitionStyle = .crossDissolve
+                    viewController.modalPresentationStyle = .fullScreen
+                    self.present(viewController, animated: true)
+                }
             }
             
         } else {
