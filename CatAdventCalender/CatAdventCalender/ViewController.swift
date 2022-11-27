@@ -20,6 +20,7 @@ class ViewController: UIViewController {
         formatter.unitsStyle = .brief
         return formatter
     }()
+    var gifts: NSMutableArray?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,6 +33,20 @@ class ViewController: UIViewController {
         let christmasDate = "2022-12-25 00:00:00".date!
         targetDate = christmasDate
         formatDuration(from: Date(), to: targetDate)
+        
+        let targetPath = getFileName("ChristmasGift.plist")
+
+        guard let sourcePath = Bundle.main.path(forResource: "ChristmasGift", ofType: "plist") else { return }
+        
+        let FileManager = FileManager.default
+        if !FileManager.fileExists(atPath: targetPath) {
+            do {
+                try FileManager.copyItem(atPath: sourcePath, toPath: targetPath)
+            } catch {
+                print("복사 실패")
+            }
+        }
+        self.gifts = NSMutableArray(contentsOfFile: targetPath)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -52,6 +67,13 @@ class ViewController: UIViewController {
         super.viewDidDisappear(animated)
         timer?.invalidate()
         timer = nil
+    }
+    
+    func getFileName(_ fileName: String) -> String {
+        let docDirs = NSSearchPathForDirectoriesInDomains(.documentDirectory, .userDomainMask, true)
+        let docPath = docDirs[0] as NSString
+        let fullPath = docPath.appendingPathComponent(fileName)
+        return fullPath
     }
     
     @objc func timerTicked(_ timer: Timer) {
