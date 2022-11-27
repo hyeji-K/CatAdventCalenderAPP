@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import UserNotifications
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -14,6 +15,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let notiCenter = UNUserNotificationCenter.current()
+        notiCenter.delegate = self
+        
+        notiCenter.requestAuthorization(options: [.alert, .badge, .sound]) { didAllow, error in
+            if let error = error {
+                print(error.localizedDescription)
+            }
+        }
+        
         return true
     }
 
@@ -34,3 +45,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+extension AppDelegate: UNUserNotificationCenterDelegate {
+    // 앱이 실행 도중에 알림 메시지가 도착한 경우
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        // 알림 배너 띄워주기
+        completionHandler([.banner, .badge, .sound])
+    }
+    
+    // 사용자가 알림 메시지를 클릭했을 경우
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        
+        completionHandler()
+    }
+}

@@ -46,12 +46,16 @@ class ViewController: UIViewController {
             }
         }
         self.gifts = NSMutableArray(contentsOfFile: targetPath)
+        
+        LocalNotification.shared.sendNotification()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         formatDuration(from: Date(), to: targetDate)
+        
+        LocalNotification.shared.removeNotification()
     }
     
     override func viewDidAppear(_ animated: Bool) {
