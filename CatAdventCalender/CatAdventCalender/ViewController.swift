@@ -10,6 +10,16 @@ import UIKit
 class ViewController: UIViewController {
 
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var timerLabel: UILabel!
+    
+    var timer: Timer?
+    var targetDate: Date = Date()
+    lazy var durationFormatter: DateComponentsFormatter = {
+        let formatter = DateComponentsFormatter()
+        formatter.allowedUnits = [.day, .hour, .minute, .second]
+        formatter.unitsStyle = .brief
+        return formatter
+    }()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -18,6 +28,39 @@ class ViewController: UIViewController {
         navigationItem.rightBarButtonItem = UIBarButtonItem(title: "D - 24", style: .plain, target: self, action: nil)
         
         setupView()
+        
+        let christmasDate = "2022-12-25 00:00:00".date!
+        targetDate = christmasDate
+        formatDuration(from: Date(), to: targetDate)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        formatDuration(from: Date(), to: targetDate)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        // Personal preference
+        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerTicked(_:)), userInfo: nil, repeats: true)
+        self.timer = timer
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        timer?.invalidate()
+        timer = nil
+    }
+    
+    @objc func timerTicked(_ timer: Timer) {
+        formatDuration(from: Date(), to: targetDate)
+    }
+    
+    func formatDuration(from: Date, to: Date) {
+        let text = durationFormatter.string(from: to.timeIntervalSince(from))
+        timerLabel.text = text
     }
 
     func setupView() {
@@ -56,7 +99,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         } else {
             cell.hiddenView.backgroundColor = .systemRed
         }
-        // TODO: PList 
+        // TODO: PList
         // Card.shown 이 false 면 cell.hiddenView.isHidden = false
         // true 면 cell.hiddenView.isHidden = true
 //        cell.imageView.image = UIImage(named: "\(number)")
