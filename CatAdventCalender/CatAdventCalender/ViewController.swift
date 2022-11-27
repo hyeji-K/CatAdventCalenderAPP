@@ -26,7 +26,6 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         
         navigationItem.title = "Advent Calender 2022"
-        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "D - 24", style: .plain, target: self, action: nil)
         
         setupView()
         
