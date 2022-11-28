@@ -27,6 +27,13 @@ class ViewController: UIViewController {
         
         navigationItem.title = "Advent Calender 2022"
         
+        let appearance = UINavigationBarAppearance()
+        appearance.configureWithOpaqueBackground()
+        appearance.backgroundImage = UIImage(named: "background")
+        appearance.shadowImage = UIImage()
+        navigationController?.navigationBar.scrollEdgeAppearance = appearance
+        navigationController?.navigationBar.standardAppearance = appearance
+
         setupView()
         
         let christmasDate = "2022-12-25 00:00:00".date!
@@ -89,12 +96,12 @@ class ViewController: UIViewController {
     }
 
     func setupView() {
-        self.view.backgroundColor = .systemBrown
+        self.view.backgroundColor = .customBrownColor
         
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = collectionViewLayout()
-        collectionView.backgroundColor = .systemBrown
+        collectionView.backgroundColor = .customBrownColor
     }
     
     func collectionViewLayout() -> UICollectionViewCompositionalLayout {
@@ -105,6 +112,7 @@ class ViewController: UIViewController {
         group.interItemSpacing = .fixed(8)
         group.contentInsets = NSDirectionalEdgeInsets(top: 8, leading: 16, bottom: 0, trailing: 16)
         let section = NSCollectionLayoutSection(group: group)
+        section.contentInsets = NSDirectionalEdgeInsets(top: 0, leading: 0, bottom: 16, trailing: 0)
         let layout = UICollectionViewCompositionalLayout(section: section)
         
         return layout
@@ -129,13 +137,22 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         if gift["shown"] as! Int == 0 {
             cell.hiddenView.isHidden = false
             if indexPath.item % 2 == 0 {
-                cell.hiddenView.backgroundColor = .systemGreen
+                cell.hiddenView.backgroundColor = .customGreenColor
             } else {
-                cell.hiddenView.backgroundColor = .systemRed
+                cell.hiddenView.backgroundColor = .customRedColor
             }
         } else {
             cell.hiddenView.isHidden = true
         }
+        
+        if indexPath.item % 2 == 0 {
+            cell.imageView.layer.borderWidth = 2
+            cell.imageView.layer.borderColor = UIColor.customGreenColor.cgColor
+        } else {
+            cell.imageView.layer.borderWidth = 2
+            cell.imageView.layer.borderColor = UIColor.customRedColor.cgColor
+        }
+        
         let imageName = gift["image"] as! String
         cell.imageView.image = UIImage(named: imageName)
         cell.imageView.backgroundColor = .systemYellow

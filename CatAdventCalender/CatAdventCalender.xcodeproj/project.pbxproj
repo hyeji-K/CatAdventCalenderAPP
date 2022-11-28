@@ -19,6 +19,7 @@
 		10EC0B6A2933075D00D76BDB /* ChristmasGift.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10EC0B692933075D00D76BDB /* ChristmasGift.plist */; };
 		10EC0B6C293318C400D76BDB /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B6B293318C400D76BDB /* ImageViewController.swift */; };
 		10EC0B6E2933695700D76BDB /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B6D2933695700D76BDB /* LocalNotification.swift */; };
+		10EC0B8B29348BBA00D76BDB /* LaunchScreenImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10EC0B8A29348BBA00D76BDB /* LaunchScreenImage@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,6 +37,7 @@
 		10EC0B692933075D00D76BDB /* ChristmasGift.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ChristmasGift.plist; sourceTree = "<group>"; };
 		10EC0B6B293318C400D76BDB /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
 		10EC0B6D2933695700D76BDB /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		10EC0B8A29348BBA00D76BDB /* LaunchScreenImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreenImage@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,6 +82,7 @@
 				10EC0B5129307A3A00D76BDB /* Main.storyboard */,
 				10EC0B5429307A3B00D76BDB /* Assets.xcassets */,
 				10EC0B5629307A3B00D76BDB /* LaunchScreen.storyboard */,
+				10EC0B8A29348BBA00D76BDB /* LaunchScreenImage@3x.png */,
 				10EC0B5929307A3B00D76BDB /* Info.plist */,
 			);
 			path = CatAdventCalender;
@@ -145,6 +148,7 @@
 			files = (
 				10EC0B5829307A3B00D76BDB /* LaunchScreen.storyboard in Resources */,
 				10EC0B5529307A3B00D76BDB /* Assets.xcassets in Resources */,
+				10EC0B8B29348BBA00D76BDB /* LaunchScreenImage@3x.png in Resources */,
 				10EC0B6A2933075D00D76BDB /* ChristmasGift.plist in Resources */,
 				10EC0B5329307A3A00D76BDB /* Main.storyboard in Resources */,
 			);
