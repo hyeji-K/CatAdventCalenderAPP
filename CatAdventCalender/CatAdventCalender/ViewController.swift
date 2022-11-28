@@ -144,6 +144,15 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
         } else {
             cell.hiddenView.isHidden = true
         }
+        
+        if indexPath.item % 2 == 0 {
+            cell.imageView.layer.borderWidth = 2
+            cell.imageView.layer.borderColor = UIColor.customGreenColor.cgColor
+        } else {
+            cell.imageView.layer.borderWidth = 2
+            cell.imageView.layer.borderColor = UIColor.customRedColor.cgColor
+        }
+        
         let imageName = gift["image"] as! String
         cell.imageView.image = UIImage(named: imageName)
         cell.imageView.backgroundColor = .systemYellow
