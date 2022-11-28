@@ -13,6 +13,13 @@
 		10EC0B5329307A3A00D76BDB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EC0B5129307A3A00D76BDB /* Main.storyboard */; };
 		10EC0B5529307A3B00D76BDB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 10EC0B5429307A3B00D76BDB /* Assets.xcassets */; };
 		10EC0B5829307A3B00D76BDB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 10EC0B5629307A3B00D76BDB /* LaunchScreen.storyboard */; };
+		10EC0B622930944800D76BDB /* CalenderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B612930944800D76BDB /* CalenderCell.swift */; };
+		10EC0B662932EE9500D76BDB /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B652932EE9500D76BDB /* Card.swift */; };
+		10EC0B682933023B00D76BDB /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B672933023B00D76BDB /* Extension.swift */; };
+		10EC0B6A2933075D00D76BDB /* ChristmasGift.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10EC0B692933075D00D76BDB /* ChristmasGift.plist */; };
+		10EC0B6C293318C400D76BDB /* ImageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B6B293318C400D76BDB /* ImageViewController.swift */; };
+		10EC0B6E2933695700D76BDB /* LocalNotification.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B6D2933695700D76BDB /* LocalNotification.swift */; };
+		10EC0B8B29348BBA00D76BDB /* LaunchScreenImage@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 10EC0B8A29348BBA00D76BDB /* LaunchScreenImage@3x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +31,13 @@
 		10EC0B5429307A3B00D76BDB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		10EC0B5729307A3B00D76BDB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		10EC0B5929307A3B00D76BDB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		10EC0B612930944800D76BDB /* CalenderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalenderCell.swift; sourceTree = "<group>"; };
+		10EC0B652932EE9500D76BDB /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		10EC0B672933023B00D76BDB /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		10EC0B692933075D00D76BDB /* ChristmasGift.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ChristmasGift.plist; sourceTree = "<group>"; };
+		10EC0B6B293318C400D76BDB /* ImageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageViewController.swift; sourceTree = "<group>"; };
+		10EC0B6D2933695700D76BDB /* LocalNotification.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalNotification.swift; sourceTree = "<group>"; };
+		10EC0B8A29348BBA00D76BDB /* LaunchScreenImage@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "LaunchScreenImage@3x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,9 +73,16 @@
 				10EC0B4B29307A3A00D76BDB /* AppDelegate.swift */,
 				10EC0B4D29307A3A00D76BDB /* SceneDelegate.swift */,
 				10EC0B4F29307A3A00D76BDB /* ViewController.swift */,
+				10EC0B6B293318C400D76BDB /* ImageViewController.swift */,
+				10EC0B612930944800D76BDB /* CalenderCell.swift */,
+				10EC0B652932EE9500D76BDB /* Card.swift */,
+				10EC0B672933023B00D76BDB /* Extension.swift */,
+				10EC0B6D2933695700D76BDB /* LocalNotification.swift */,
+				10EC0B692933075D00D76BDB /* ChristmasGift.plist */,
 				10EC0B5129307A3A00D76BDB /* Main.storyboard */,
 				10EC0B5429307A3B00D76BDB /* Assets.xcassets */,
 				10EC0B5629307A3B00D76BDB /* LaunchScreen.storyboard */,
+				10EC0B8A29348BBA00D76BDB /* LaunchScreenImage@3x.png */,
 				10EC0B5929307A3B00D76BDB /* Info.plist */,
 			);
 			path = CatAdventCalender;
@@ -127,6 +148,8 @@
 			files = (
 				10EC0B5829307A3B00D76BDB /* LaunchScreen.storyboard in Resources */,
 				10EC0B5529307A3B00D76BDB /* Assets.xcassets in Resources */,
+				10EC0B8B29348BBA00D76BDB /* LaunchScreenImage@3x.png in Resources */,
+				10EC0B6A2933075D00D76BDB /* ChristmasGift.plist in Resources */,
 				10EC0B5329307A3A00D76BDB /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -140,7 +163,12 @@
 			files = (
 				10EC0B5029307A3A00D76BDB /* ViewController.swift in Sources */,
 				10EC0B4C29307A3A00D76BDB /* AppDelegate.swift in Sources */,
+				10EC0B662932EE9500D76BDB /* Card.swift in Sources */,
+				10EC0B6C293318C400D76BDB /* ImageViewController.swift in Sources */,
+				10EC0B6E2933695700D76BDB /* LocalNotification.swift in Sources */,
+				10EC0B682933023B00D76BDB /* Extension.swift in Sources */,
 				10EC0B4E29307A3A00D76BDB /* SceneDelegate.swift in Sources */,
+				10EC0B622930944800D76BDB /* CalenderCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
