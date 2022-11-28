@@ -9,7 +9,15 @@ import UIKit
 
 class ImageViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
+    let imageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.backgroundColor = .customGreenColor
+        imageView.layer.borderColor = UIColor.customGreenColor.cgColor
+        imageView.layer.borderWidth = 4
+        imageView.layer.masksToBounds = true
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
     var imageName: String
     
     init(imageName: String) {
@@ -25,9 +33,28 @@ class ImageViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.view.backgroundColor = .black.withAlphaComponent(0.2)
+        setupView()
         imageView.image = UIImage(named: imageName)
+    }
+    
+    func setupView() {
+        self.view.backgroundColor = .black.withAlphaComponent(0.2)
+        self.view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.centerYAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerYAnchor).isActive = true
+        imageView.centerXAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.centerXAnchor).isActive = true
+        imageView.widthAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
+        imageView.heightAnchor.constraint(equalTo: self.view.widthAnchor).isActive = true
         
+        let number = String(imageName.last!)
+        
+        if (Int(number) ?? 0) % 2 == 1 {
+            imageView.layer.borderColor = UIColor.customGreenColor.cgColor
+            imageView.backgroundColor = .customGreenColor
+        } else {
+            imageView.layer.borderColor = UIColor.customRedColor.cgColor
+            imageView.backgroundColor = .customRedColor
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
