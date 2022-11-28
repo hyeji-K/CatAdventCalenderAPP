@@ -178,18 +178,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
                 gifts[indexPath.item] = gift
                 gifts.write(toFile: getFileName("ChristmasGift.plist"), atomically: true)
                 
-                self.collectionView.reloadData()
-                
-                if gift["shown"] as! Int == 1 {
-                    // 스토리보드 화면전환
-                    let storyboard = UIStoryboard.init(name: "Main", bundle: nil)
-                    let viewController = storyboard.instantiateViewController(withIdentifier: "ImageViewController")
+                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                    let imageName = gift["image"] as! String
+                    let viewController = ImageViewController(imageName: imageName)
                     viewController.modalTransitionStyle = .crossDissolve
-                    viewController.modalPresentationStyle = .fullScreen
+                    viewController.modalPresentationStyle = .overFullScreen
                     self.present(viewController, animated: true)
                 }
             }
-            
         } else {
             print("아직 날짜가 오지 않았어요!")
             let alert = UIAlertController(title: "아직 날짜가 오지 않았어요!", message: "조금만 더 기다려요", preferredStyle: .alert)
