@@ -171,7 +171,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
             let currentDay = currentDate.components(separatedBy: "/")
             if "\(cellIndexPath)" <= currentDay[1] {
                 print("고양이 사진을 보여줍니다.")
-                cell.showCard(false, animted: true)
+                cell.showCard()
                 
                 guard let gifts = self.gifts,
                       var gift = gifts[indexPath.item] as? [String: Any]
