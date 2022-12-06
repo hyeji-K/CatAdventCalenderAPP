@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.day, .hour, .minute, .second]
         formatter.unitsStyle = .brief
+        formatter.calendar?.locale = Locale(identifier: "ko_KR")
         return formatter
     }()
     var gifts: NSMutableArray?
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Advent Calender 2022"
+        navigationItem.title = "Advent Calendar 2022"
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -36,9 +37,12 @@ class ViewController: UIViewController {
 
         setupView()
         
-        let christmasDate = "2022-12-25 00:00:00".date!
+        guard let christmasDate = "2022-12-25 00:00:00".date else { return }
         targetDate = christmasDate
         formatDuration(from: Date(), to: targetDate)
+        
+        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerTicked(_:)), userInfo: nil, repeats: true)
+        self.timer = timer
         
         let targetPath = getFileName("ChristmasGift.plist")
 
@@ -60,17 +64,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        formatDuration(from: Date(), to: targetDate)
-        
         LocalNotification.shared.removeNotification()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // Personal preference
-        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerTicked(_:)), userInfo: nil, repeats: true)
-        self.timer = timer
     }
     
     override func viewDidDisappear(_ animated: Bool) {
