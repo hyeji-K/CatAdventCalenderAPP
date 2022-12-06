@@ -18,6 +18,7 @@ class ViewController: UIViewController {
         let formatter = DateComponentsFormatter()
         formatter.allowedUnits = [.day, .hour, .minute, .second]
         formatter.unitsStyle = .brief
+        formatter.calendar?.locale = Locale(identifier: "ko_KR")
         return formatter
     }()
     var gifts: NSMutableArray?
@@ -25,7 +26,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title = "Advent Calender 2022"
+        navigationItem.title = "Advent Calendar 2022"
         
         let appearance = UINavigationBarAppearance()
         appearance.configureWithOpaqueBackground()
@@ -36,9 +37,12 @@ class ViewController: UIViewController {
 
         setupView()
         
-        let christmasDate = "2022-12-25 00:00:00".date!
+        guard let christmasDate = "2022-12-25 00:00:00".date else { return }
         targetDate = christmasDate
         formatDuration(from: Date(), to: targetDate)
+        
+        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerTicked(_:)), userInfo: nil, repeats: true)
+        self.timer = timer
         
         let targetPath = getFileName("ChristmasGift.plist")
 
@@ -60,17 +64,7 @@ class ViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
-        formatDuration(from: Date(), to: targetDate)
-        
         LocalNotification.shared.removeNotification()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        // Personal preference
-        let timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(timerTicked(_:)), userInfo: nil, repeats: true)
-        self.timer = timer
     }
     
     override func viewDidDisappear(_ animated: Bool) {
@@ -164,12 +158,14 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CalenderCell
-        let currentDate = Date().formatted(.dateTime.month(.defaultDigits).day())
-        if "12/\(indexPath.item + 1)" == currentDate {
+        let currentDate = Date().formatted(.dateTime.month(.twoDigits).day(.defaultDigits))
+        let cellIndexPath = indexPath.item + 1
+        
+        if "12/\(cellIndexPath)" <= "\(currentDate)" {
             let currentDay = currentDate.components(separatedBy: "/")
-            if "\(indexPath.item + 1)" <= currentDay[1] {
+            if "\(cellIndexPath)" <= currentDay[1] {
                 print("고양이 사진을 보여줍니다.")
-                cell.showCard(false, animted: true)
+                cell.showCard()
                 
                 guard let gifts = self.gifts,
                       var gift = gifts[indexPath.item] as? [String: Any]
@@ -178,7 +174,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
                 gifts[indexPath.item] = gift
                 gifts.write(toFile: getFileName("ChristmasGift.plist"), atomically: true)
                 
-                DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
                     let imageName = gift["image"] as! String
                     let viewController = ImageViewController(imageName: imageName)
                     viewController.modalTransitionStyle = .crossDissolve
