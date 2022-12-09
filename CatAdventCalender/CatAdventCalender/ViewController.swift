@@ -159,11 +159,12 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let cell = collectionView.cellForItem(at: indexPath) as! CalenderCell
         let currentDate = Date().formatted(.dateTime.month(.twoDigits).day(.defaultDigits))
-        let cellIndexPath = indexPath.item + 1
+        let currentDay = currentDate.components(separatedBy: "/").compactMap { Int($0) }
+        let day = indexPath.item + 1
         
-        if "12/\(cellIndexPath)" <= "\(currentDate)" {
-            let currentDay = currentDate.components(separatedBy: "/")
-            if "\(cellIndexPath)" <= currentDay[1] {
+        if currentDay[0] == 12 {
+            print("12월 입니다.")
+            if currentDay[1] >= day {
                 print("고양이 사진을 보여줍니다.")
                 cell.showCard()
                 
@@ -181,13 +182,13 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate {
                     viewController.modalPresentationStyle = .overFullScreen
                     self.present(viewController, animated: true)
                 }
+            } else {
+                print("아직 날짜가 오지 않았어요!")
+                let alert = UIAlertController(title: "아직 날짜가 오지 않았어요!", message: "조금만 더 기다려요", preferredStyle: .alert)
+                let action = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(action)
+                self.present(alert, animated: true)
             }
-        } else {
-            print("아직 날짜가 오지 않았어요!")
-            let alert = UIAlertController(title: "아직 날짜가 오지 않았어요!", message: "조금만 더 기다려요", preferredStyle: .alert)
-            let action = UIAlertAction(title: "확인", style: .default)
-            alert.addAction(action)
-            self.present(alert, animated: true)
         }
     }
 }
