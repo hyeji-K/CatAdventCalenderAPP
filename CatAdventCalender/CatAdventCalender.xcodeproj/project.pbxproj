@@ -51,6 +51,65 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		10344A782A91AAD40096E45D /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				10EC0B4B29307A3A00D76BDB /* AppDelegate.swift */,
+				10EC0B4D29307A3A00D76BDB /* SceneDelegate.swift */,
+			);
+			path = Delegates;
+			sourceTree = "<group>";
+		};
+		10344A792A91AB1F0096E45D /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				10EC0B4F29307A3A00D76BDB /* ViewController.swift */,
+				10EC0B6B293318C400D76BDB /* ImageViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		10344A7A2A91AB350096E45D /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				10EC0B652932EE9500D76BDB /* Card.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		10344A7B2A91AB3E0096E45D /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				10EC0B672933023B00D76BDB /* Extension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		10344A7C2A91AB490096E45D /* Notification */ = {
+			isa = PBXGroup;
+			children = (
+				10EC0B6D2933695700D76BDB /* LocalNotification.swift */,
+			);
+			path = Notification;
+			sourceTree = "<group>";
+		};
+		10344A7D2A91AB590096E45D /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				10EC0B5129307A3A00D76BDB /* Main.storyboard */,
+				10344A7E2A91AB7F0096E45D /* CustomCells */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		10344A7E2A91AB7F0096E45D /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+				10EC0B612930944800D76BDB /* CalenderCell.swift */,
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
 		10EC0B3F29307A3A00D76BDB = {
 			isa = PBXGroup;
 			children = (
@@ -70,16 +129,13 @@
 		10EC0B4A29307A3A00D76BDB /* CatAdventCalender */ = {
 			isa = PBXGroup;
 			children = (
-				10EC0B4B29307A3A00D76BDB /* AppDelegate.swift */,
-				10EC0B4D29307A3A00D76BDB /* SceneDelegate.swift */,
-				10EC0B4F29307A3A00D76BDB /* ViewController.swift */,
-				10EC0B6B293318C400D76BDB /* ImageViewController.swift */,
-				10EC0B612930944800D76BDB /* CalenderCell.swift */,
-				10EC0B652932EE9500D76BDB /* Card.swift */,
-				10EC0B672933023B00D76BDB /* Extension.swift */,
-				10EC0B6D2933695700D76BDB /* LocalNotification.swift */,
+				10344A7A2A91AB350096E45D /* Model */,
+				10344A7D2A91AB590096E45D /* Views */,
+				10344A792A91AB1F0096E45D /* Controller */,
+				10344A782A91AAD40096E45D /* Delegates */,
+				10344A7B2A91AB3E0096E45D /* Extensions */,
+				10344A7C2A91AB490096E45D /* Notification */,
 				10EC0B692933075D00D76BDB /* ChristmasGift.plist */,
-				10EC0B5129307A3A00D76BDB /* Main.storyboard */,
 				10EC0B5429307A3B00D76BDB /* Assets.xcassets */,
 				10EC0B5629307A3B00D76BDB /* LaunchScreen.storyboard */,
 				10EC0B8A29348BBA00D76BDB /* LaunchScreenImage@3x.png */,
