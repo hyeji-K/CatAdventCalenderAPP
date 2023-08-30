@@ -130,7 +130,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-349" y="1629"/>
+            <point key="canvasLocation" x="1983" y="925"/>
         </scene>
         <!--Item-->
         <scene sceneID="LZk-5P-jjj">
@@ -149,7 +149,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="CIE-OG-oGw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-349" y="830"/>
+            <point key="canvasLocation" x="1338" y="925"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="rXC-QC-XZL">
@@ -162,12 +162,50 @@
                     </tabBar>
                     <connections>
                         <segue destination="OiB-Ew-eio" kind="relationship" relationship="viewControllers" id="kI6-Ke-hzL"/>
-                        <segue destination="Yms-rU-0Hl" kind="relationship" relationship="viewControllers" id="0PF-Rc-fX5"/>
+                        <segue destination="9Or-Ok-NTA" kind="relationship" relationship="viewControllers" id="a5b-K1-c2R"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3g8-Nc-BRM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-349.27536231884062" y="93.75"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="eo7-xV-uuo">
+            <objects>
+                <viewController id="9Or-Ok-NTA" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="pyW-wJ-Z5E">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RP2-GO-odU">
+                                <rect key="frame" x="0.0" y="48" width="414" height="765"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="103" id="XIU-LL-MKX">
+                                        <rect key="frame" x="0.0" y="50" width="414" height="103"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="XIU-LL-MKX" id="y7o-ba-Kvh">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="103"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="cJv-C3-BFQ"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="RP2-GO-odU" firstAttribute="leading" secondItem="cJv-C3-BFQ" secondAttribute="leading" id="OH6-AZ-g1K"/>
+                            <constraint firstItem="RP2-GO-odU" firstAttribute="top" secondItem="cJv-C3-BFQ" secondAttribute="top" id="frM-eM-hmX"/>
+                            <constraint firstItem="cJv-C3-BFQ" firstAttribute="trailing" secondItem="RP2-GO-odU" secondAttribute="trailing" id="oRG-0s-uHW"/>
+                            <constraint firstItem="cJv-C3-BFQ" firstAttribute="bottom" secondItem="RP2-GO-odU" secondAttribute="bottom" id="qYa-Zu-g6q"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="" image="books.vertical" catalog="system" id="4xy-IF-YgK"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="opI-Xc-l5I" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="605.79710144927537" y="829.6875"/>
         </scene>
         <!--Card Gacha View Controller-->
         <scene sceneID="RXU-j6-TXe">
@@ -261,6 +299,7 @@
     </scenes>
     <resources>
         <image name="birthday.cake" catalog="system" width="128" height="115"/>
+        <image name="books.vertical" catalog="system" width="128" height="107"/>
         <image name="questionmark.square.dashed" catalog="system" width="128" height="114"/>
         <systemColor name="labelColor">
             <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
