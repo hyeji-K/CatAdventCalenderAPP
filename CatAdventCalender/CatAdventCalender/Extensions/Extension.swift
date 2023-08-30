@@ -44,4 +44,9 @@ extension UIColor {
     static var customBrackColor: UIColor {
         UIColor(named: "customBrackColor") ?? UIColor(hex: 0x2A2017)
     }
+    
+    // Gacha Color
+    static var frashGreenColor: UIColor {
+        UIColor(named: "frashGreenColor") ?? UIColor(hex: 0x7DBB7C)
+    }
 }
