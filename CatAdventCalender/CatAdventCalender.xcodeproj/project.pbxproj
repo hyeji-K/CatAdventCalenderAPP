@@ -8,6 +8,11 @@
 
 /* Begin PBXBuildFile section */
 		10344A942A9F23470096E45D /* CardGachaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10344A932A9F23470096E45D /* CardGachaViewController.swift */; };
+		10344A962A9F67A40096E45D /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 10344A952A9F67A40096E45D /* GoogleService-Info.plist */; };
+		10344A992A9F68B80096E45D /* FirebaseAnalytics in Frameworks */ = {isa = PBXBuildFile; productRef = 10344A982A9F68B80096E45D /* FirebaseAnalytics */; };
+		10344A9B2A9F68B80096E45D /* FirebaseAuth in Frameworks */ = {isa = PBXBuildFile; productRef = 10344A9A2A9F68B80096E45D /* FirebaseAuth */; };
+		10344A9D2A9F68B80096E45D /* FirebaseDatabase in Frameworks */ = {isa = PBXBuildFile; productRef = 10344A9C2A9F68B80096E45D /* FirebaseDatabase */; };
+		10344A9F2A9F68B80096E45D /* FirebaseStorage in Frameworks */ = {isa = PBXBuildFile; productRef = 10344A9E2A9F68B80096E45D /* FirebaseStorage */; };
 		10EC0B4C29307A3A00D76BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B4B29307A3A00D76BDB /* AppDelegate.swift */; };
 		10EC0B4E29307A3A00D76BDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B4D29307A3A00D76BDB /* SceneDelegate.swift */; };
 		10EC0B5029307A3A00D76BDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B4F29307A3A00D76BDB /* ViewController.swift */; };
@@ -25,6 +30,7 @@
 
 /* Begin PBXFileReference section */
 		10344A932A9F23470096E45D /* CardGachaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGachaViewController.swift; sourceTree = "<group>"; };
+		10344A952A9F67A40096E45D /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		10EC0B4829307A3A00D76BDB /* CatAdventCalender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatAdventCalender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC0B4B29307A3A00D76BDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10EC0B4D29307A3A00D76BDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -47,6 +53,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				10344A9D2A9F68B80096E45D /* FirebaseDatabase in Frameworks */,
+				10344A9F2A9F68B80096E45D /* FirebaseStorage in Frameworks */,
+				10344A992A9F68B80096E45D /* FirebaseAnalytics in Frameworks */,
+				10344A9B2A9F68B80096E45D /* FirebaseAuth in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -143,6 +153,7 @@
 				10EC0B5629307A3B00D76BDB /* LaunchScreen.storyboard */,
 				10EC0B8A29348BBA00D76BDB /* LaunchScreenImage@3x.png */,
 				10EC0B5929307A3B00D76BDB /* Info.plist */,
+				10344A952A9F67A40096E45D /* GoogleService-Info.plist */,
 			);
 			path = CatAdventCalender;
 			sourceTree = "<group>";
@@ -163,6 +174,12 @@
 			dependencies = (
 			);
 			name = CatAdventCalender;
+			packageProductDependencies = (
+				10344A982A9F68B80096E45D /* FirebaseAnalytics */,
+				10344A9A2A9F68B80096E45D /* FirebaseAuth */,
+				10344A9C2A9F68B80096E45D /* FirebaseDatabase */,
+				10344A9E2A9F68B80096E45D /* FirebaseStorage */,
+			);
 			productName = CatAdventCalender;
 			productReference = 10EC0B4829307A3A00D76BDB /* CatAdventCalender.app */;
 			productType = "com.apple.product-type.application";
@@ -191,6 +208,9 @@
 				Base,
 			);
 			mainGroup = 10EC0B3F29307A3A00D76BDB;
+			packageReferences = (
+				10344A972A9F68B80096E45D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			productRefGroup = 10EC0B4929307A3A00D76BDB /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -210,6 +230,7 @@
 				10EC0B8B29348BBA00D76BDB /* LaunchScreenImage@3x.png in Resources */,
 				10EC0B6A2933075D00D76BDB /* ChristmasGift.plist in Resources */,
 				10EC0B5329307A3A00D76BDB /* Main.storyboard in Resources */,
+				10344A962A9F67A40096E45D /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -450,6 +471,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		10344A972A9F68B80096E45D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		10344A982A9F68B80096E45D /* FirebaseAnalytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10344A972A9F68B80096E45D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAnalytics;
+		};
+		10344A9A2A9F68B80096E45D /* FirebaseAuth */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10344A972A9F68B80096E45D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseAuth;
+		};
+		10344A9C2A9F68B80096E45D /* FirebaseDatabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10344A972A9F68B80096E45D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseDatabase;
+		};
+		10344A9E2A9F68B80096E45D /* FirebaseStorage */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 10344A972A9F68B80096E45D /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseStorage;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 10EC0B4029307A3A00D76BDB /* Project object */;
 }
