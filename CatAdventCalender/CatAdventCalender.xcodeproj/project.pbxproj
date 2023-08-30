@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		10344A942A9F23470096E45D /* CardGachaViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10344A932A9F23470096E45D /* CardGachaViewController.swift */; };
 		10EC0B4C29307A3A00D76BDB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B4B29307A3A00D76BDB /* AppDelegate.swift */; };
 		10EC0B4E29307A3A00D76BDB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B4D29307A3A00D76BDB /* SceneDelegate.swift */; };
 		10EC0B5029307A3A00D76BDB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10EC0B4F29307A3A00D76BDB /* ViewController.swift */; };
@@ -23,6 +24,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		10344A932A9F23470096E45D /* CardGachaViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardGachaViewController.swift; sourceTree = "<group>"; };
 		10EC0B4829307A3A00D76BDB /* CatAdventCalender.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CatAdventCalender.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		10EC0B4B29307A3A00D76BDB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		10EC0B4D29307A3A00D76BDB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -65,6 +67,7 @@
 			children = (
 				10EC0B4F29307A3A00D76BDB /* ViewController.swift */,
 				10EC0B6B293318C400D76BDB /* ImageViewController.swift */,
+				10344A932A9F23470096E45D /* CardGachaViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -222,6 +225,7 @@
 				10EC0B662932EE9500D76BDB /* Card.swift in Sources */,
 				10EC0B6C293318C400D76BDB /* ImageViewController.swift in Sources */,
 				10EC0B6E2933695700D76BDB /* LocalNotification.swift in Sources */,
+				10344A942A9F23470096E45D /* CardGachaViewController.swift in Sources */,
 				10EC0B682933023B00D76BDB /* Extension.swift in Sources */,
 				10EC0B4E29307A3A00D76BDB /* SceneDelegate.swift in Sources */,
 				10EC0B622930944800D76BDB /* CalenderCell.swift in Sources */,
